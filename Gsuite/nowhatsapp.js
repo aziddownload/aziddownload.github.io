@@ -68,7 +68,7 @@ $('#whatsapp').toggleClass('toggle');});
                ' %0A%2ANama Depan%2A: ' + namadepan + 
                ' %0A%2ANama Belakang%2A: ' + namabelakang + 
                ' %0A%2AUsername%2A: ' + username + 
-               ' %0A%2ANo Whatsapp%2A: ' + nomor +
+               ' %0A%2ANo Whatsapp%2A: ' + nomor + '%0A' +
                '_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _%0A%0A' +
                ' %0A%2AMetode Pembayaran%2A: ' + pembayaran + '%0A' +
                ' %0A%2ASaya dapat informasi dari%2A: ' + informasi + '%0A' + 
