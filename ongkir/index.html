@@ -1,0 +1,459 @@
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"> 
+		<title>Cek Ongkos Kirim Tarif JNE, J&T, TIKI, POS, SICEPAT, LION PARCEL, NINJA EXPRESS dan Keluar Negeri</title>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-34494710-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-34494710-1');
+</script>
+
+		 <script type="text/javascript" src="/ongkir/js1.js"></script>
+    <script type="text/javascript" src="/ongkir/js2.js"></script>
+    <link rel="stylesheet" type="text/css" href="/ongkir/css1.css">
+		<link rel="stylesheet" type="text/css" href="/ongkir/css2.css" media="screen">
+		<link rel="stylesheet" href="/ongkir/css3.css">
+		<!-- <link rel="stylesheet" href="assets/css/bootstrap.css"> -->
+	</head>
+	<body>   
+			<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="panel panel-success"> 
+						<div class="panel-heading">
+						    <ul class="tabs">
+        <li class="tab-link current" data-tab="cekongkir"><h3 class="panel-tab">Cek Ongkir</h3></li>
+        <li class="tab-link" data-tab="cekresi"><h3 class="panel-tab">Cek Resi</h3></li> 
+      </ul> 
+							
+						</div>
+						<div class="panel-body"> 
+						<div class="tab-pane current" id="cekongkir"><div id="lokal">
+						     <label for="kecamatan">Kecamatan/Kota Asal</label><br>
+						    <input class="form-control" placeholder="Ketik sebagian dan pilih" id="asall" type="text" name="asall" value="Grogol Petamburan - Kota Jakarta Barat" />
+						    <input type="hidden" value="" id="asal_id" />  
+						    <label for="kecamatan">Kecamatan/Kota Tujuan</label><br>
+						    <input class="form-control" placeholder="Ketik sebagian dan pilih" id="city" type="text" name="city" value="" />
+						    <input type="hidden" value="" id="city_id" /> 
+											</div>
+											
+											
+											<div class="form-group">
+											    <label>Kirim Keluar Negeri?</label>
+											   <input name="international" id="international" class="bullet" value="international" type="checkbox"> 
+											   <label for="international" class="bullet"></label></div>
+											   <div id="luar">
+											   <label for="negara">Negara Tujuan</label><br>
+						    <input class="form-control" placeholder="Ketik sebagian dan pilih" id="negaraa" type="text" name="negaraa" value="" />
+						    <input type="hidden" value="" id="negara_id" />
+											 </div>
+											
+											<div class="form-group">
+												<label for="berat">Berat (gram)</label><br>
+												<input class="form-control" id="berat" type="number" name="berat" value="1000" />
+											</div>
+											<button class="btns btn-success" id="cek" type="submit" name="button">Cek Ongkir</button>
+										</div>
+										<div class="tab-pane" id="cekresi">
+										 
+						
+
+											<div class="form-group">
+												<label for="resi">Nomor Resi</label><br> 
+												<input type="text" name="resi" value="" id="resi" class="form-control" oninput="this.value = this.value.toUpperCase()" /> 
+												
+											</div>
+											<input type="hidden" value="" id="kurirs" />
+<input type="hidden" value="" id="resis" />
+
+										<!--	<div class="form-group">
+												<label for="kurir">Ekspedisi</label><br>
+												<select class="form-control" id="kurir" name="kurir">
+												    <option id="kurir" value="">Pilih Ekspedisi</option>
+												<option id="kurir" value="jne">JNE</option>
+												<option id="kurir" value="jnt">J&T</option>
+												<option id="kurir" value="pos">Pos Indonesia</option>
+												<option id="kurir" value="tiki">Tiki</option>
+												<option id="kurir" value="sicepat">Sicepat</option>
+												<option id="kurir" value="ninja">Ninja Xpress</option>
+												<option id="kurir" value="lion">Lion Parcel</option></select>
+											</div> --> 
+											<div id="cekresi-btn">
+											<button class="btns btn-success" id="cek" type="submit" name="button" onClick="cekResi()">Cek Resi</button>
+											</div>
+											<div id="revisi-btn">
+											    Atau Klik Untuk Revisi Ekspedisi<br />
+											<a class="btns btn-success rev" id="revisi" name="revisi" onClick="$('#kurirs').val('jne');cekResi()">JNE</a>
+											<a class="btns btn-success rev" id="revisi" name="revisi" onClick="$('#kurirs').val('jnt');cekResi()">JNT</a>
+											<a class="btns btn-success rev" id="revisi" name="revisi" onClick="$('#kurirs').val('pos');cekResi()">Pos Indonesia</a>
+											<a class="btns btn-success rev" id="revisi" name="revisi" onClick="$('#kurirs').val('tiki');cekResi()">Tiki</a>
+											<a class="btns btn-success rev" id="revisi" name="revisi" onClick="$('#kurirs').val('sicepat');cekResi()">SiCepat</a>
+											<a class="btns btn-success rev" id="revisi" name="revisi" onClick="$('#kurirs').val('wahana');cekResi()">Wahana</a>
+											<a class="btns btn-success rev" id="revisi" name="revisi" onClick="$('#kurirs').val('ninja');cekResi()">Ninja Xpress</a>
+											<a class="btns btn-success rev" id="revisi" name="revisi" onClick="$('#kurirs').val('lion');cekResi()">Lion Parcel</a>
+											</div>
+										<div id="loading"></div> 
+										
+										</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<div id="panels" class="panel">
+								 
+								<div class="panel-body">
+									<ol>
+										<div id="ongkir">
+										    										    
+										</div>
+									</div>
+								</ol>
+							</div>
+						</div>
+			</div>
+			<footer>
+				<div class="row">
+					<div class="col-md-4">
+
+					</div>
+				</div>
+<a href="https://www.frozenshop.com/cek?utm_source=widget" target="_BLANK">Widget Cek Ongkir dan Resi</a>
+			</footer>
+			</div>
+		</div>
+        <script type="text/javascript">
+    function copylinkresi() {
+  /* Get the text field */
+  var copyLink = document.getElementById("linkcekresi");
+
+  /* Select the text field */
+  copyLink.select();
+  copyLink.setSelectionRange(0, 99999); /*For mobile devices*/
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+ 
+}
+
+
+$(function(){
+	var checkbox = '[name^="international"][value="international"]';
+	var textBox = '[name="negara"]'; 
+
+$( "#asal_id" ).autocomplete({
+  // do whatever
+}).val('2088').data('autocomplete')._trigger('select');
+
+
+	$(checkbox).on('change', function(){
+		if($(this).is(':checked')){
+			$(textBox).parent().show();
+			$("#lokal").hide();
+			$("#luar").show();
+		} else {
+			$(textBox).parent().hide();
+			$("#lokal").show();
+			$("#luar").hide();
+		}
+	});
+	
+	$(checkbox).trigger('change');
+});
+</script> 
+<script>
+    $(function() {
+	$('.tabs li').on('click', function() {
+		var tabId = $(this).attr('data-tab');
+
+		$('.tabs li').removeClass('current'); 
+		$('.tab-pane').removeClass('current'); 
+
+		$(this).addClass('current');
+		$('#' + tabId).addClass('current');
+		$('#gagal').remove(); 
+	});
+});
+</script>
+ <script>
+     /** Tiny Autocomplete * Small and fast autocomplete plugin for Zepto and jQuery.* Written by Johan Halse, https://twitter.com/hejsna, johan@varvet.se * Contributions by Juha Tauriainen, https://github.com/JuhQ * License: http://johanhalse.mit-license.org * @version 0.4.5 **/
+(function(g,c){var e=function(a,b){this.field=c(a);this.json=this.el=null;this.items=[];this.selectedItem=null;this.list=c('<ul class="autocomplete-list" />');this.lastSearch=null;this.options=b};e.prototype={defaults:{minChars:2,markAsBold:!0,grouped:!1,queryProperty:"q",queryParameters:{},method:"get",scrollOnFocus:"auto",maxItems:100,keyboardDelay:300,lastItemTemplate:null,closeOnSelect:!0,groupContentName:".autocomplete-items",groupTemplate:'<li class="autocomplete-group"><span class="autocomplete-group-header">{{title}}</span><ul class="autocomplete-items" /></li>',itemTemplate:'<li class="autocomplete-item">{{title}}</li>',showNoResults:!1,noResultsTemplate:'<li class="autocomplete-item">No results for {{title}}</li>'},init:function(){this.defaults.templateMethod=this.template;this.settings=c.extend({},this.defaults,this.options);this.setupSettings();this.setupMarkup();this.setupEvents();return this},template:function(a,b){return a.replace(/{{\s*[\w]+\s*}}/g,function(a){return b[a.substr(2,a.length-4)]})},debounce:function(a,b,f){var d;return function(){var c=this,k=arguments,e=f&&!d;clearTimeout(d);d=setTimeout(function(){d=null;f||a.apply(c,k)},b);e&&a.apply(c,k)}},setupSettings:function(){"auto"==this.settings.scrollOnFocus&&(this.settings.scrollOnFocus=this.isTouchDevice());500>c(g).height()&&(this.settings.maxItems=Math.min(this.settings.maxItems,300));this.request=this.settings.data?this.localRequest:this.remoteRequest;null!=this.settings.keyboardDelay&&(this.request=this.debounce(this.request,this.settings.keyboardDelay))},setupEvents:function(){this.el.on("keyup",".autocomplete-field",c.proxy(this.onKeyUp,this));this.el.on("keydown",".autocomplete-field",c.proxy(this.onKeyDown,this));this.el.on("click",".autocomplete-item",c.proxy(this.onClickItem,this));if(this.settings.scrollOnFocus)this.field.on("focus",function(){var a=c(this).offset().top;setTimeout(function(){g.scrollTo(0,a)},0)})},setupMarkup:function(){this.field.addClass("autocomplete-field");this.field.attr("autocomplete","off");this.field.wrap('<div class="autocomplete" />');this.el=this.field.parent()},remoteRequest:function(a){this.field.trigger("beforerequest",[this,a]);var b={};c.extend(b,this.settings.queryParameters);b[this.settings.queryProperty]=a;c.ajax({method:this.settings.method,url:this.settings.url,dataType:"json",data:b,success:c.proxy(this.beforeReceiveData,this)})},localRequest:function(a){this.settings.grouped?this.beforeReceiveData(this.matchLocalPatternGrouped(a)):this.beforeReceiveData(this.matchLocalPatternFlat(a))},matchLocalPatternFlat:function(a){return this.matchArray(a,this.settings.data)},matchLocalPatternGrouped:function(a){for(var b=c.extend(!0,[],this.settings.data),f=0;f<b.length;f++){var d=this.matchArray(a,b[f].data);0==d.length?(b.splice(f,1),f--):b[f].data=d}return b},matchArray:function(a,b){for(var c=[],d=0;d<b.length;d++)for(var h in b[d])if(b[d][h].toLowerCase&&-1<b[d][h].toLowerCase().indexOf(a.toLowerCase())||b[d][h]==a){c.push(b[d]);break}return c},itemAt:function(a){return null==a?c():this.el.find(".autocomplete-item").eq(a)},clickedItemAt:function(a){for(var b=0;b<this.items.length;b++)if(a==this.el.find(".autocomplete-item").eq(b).get(0))return b;return null},prevItem:function(){this.selectedItem--;0>this.selectedItem&&(this.selectedItem=null);this.markSelected(this.selectedItem)},nextItem:function(){null==this.selectedItem&&(this.selectedItem=-1);this.selectedItem++;var a=this.settings.lastItemTemplate?this.items.length:this.items.length-1;this.selectedItem>=a&&(this.selectedItem=a);this.markSelected(this.selectedItem)},markSelected:function(a){this.el.find(".active").removeClass("active");this.itemAt(a).addClass("active")},markHitText:function(a,b){var c=b.split(" "),d;for(d in a)if("string"==typeof a[d]&&"template"!=d){for(var h=[b],e=0;e<c.length;e++){var g=c[e].trim().replace(/[^a-\u00f60-9]/gi,"");0<g.length&&h.push(g)}a[d]=a[d].replace(new RegExp("("+h.join("|")+")","gi"),"<strong>$1</strong>")}return a},renderGroups:function(){this.list.remove();this.list=c('<ul class="autocomplete-list" />');for(var a in this.json)this.list.append(this.settings.templateMethod(this.settings.groupTemplate,this.json[a]));this.el.append(this.list)},renderItemsInGroups:function(){for(var a=this.field.val(),b=0;b<this.json.length;b++)for(var f=this.el.find(this.settings.groupContentName).eq(b),d=0;d<this.json[b].data.length&&d<this.settings.maxItems;d++){var e=c.extend({},this.json[b].data[d]);this.settings.markAsBold&&(e=this.markHitText(e,a));f.append(this.settings.templateMethod(this.json[b].template||this.settings.itemTemplate,e))}},renderItemsFlat:function(){this.list.remove();this.list=c('<ul class="autocomplete-list" />');for(var a=this.field.val(),b=0;b<this.json.length&&b<this.settings.maxItems;b++){var f=c.extend({},this.json[b]);this.settings.markAsBold&&(f=this.markHitText(f,a));this.list.append(this.settings.templateMethod(this.json[b].template||this.settings.itemTemplate,f))}this.el.append(this.list)},renderLastItem:function(){this.list.append(this.settings.templateMethod(this.settings.lastItemTemplate,{title:this.field.val()}))},renderNoResults:function(){this.list.append(this.settings.templateMethod(this.settings.noResultsTemplate,{title:this.field.val()}))},closeList:function(){c("html").off("click");this.list.remove();this.selectedItem=null},getItemsFromGroups:function(){var a=[],b;for(b in this.json)for(var c=0;c<this.json[b].data.length;c++)c<this.settings.maxItems&&a.push(this.json[b].data[c]);return a},valueHasChanged:function(){return this.field.val()!=this.lastSearch?(this.lastSearch=this.field.val(),!0):!1},isTouchDevice:function(){return!!("ontouchstart"in g)},beforeReceiveData:function(a,b){this.json=a;this.field.trigger("receivedata",[this,a,b]);this.onReceiveData(this.json)},onReceiveData:function(a){this.selectedItem=null;this.settings.grouped?(this.renderGroups(),this.items=this.getItemsFromGroups(),this.renderItemsInGroups()):(this.items=this.json,this.renderItemsFlat());this.items.length||this.settings.showNoResults&&this.renderNoResults();this.settings.lastItemTemplate&&this.renderLastItem();c("html").one("click",c.proxy(this.closeList,this))},onKeyUp:function(a){this.field.val().length>=this.settings.minChars&&this.valueHasChanged()&&this.request(this.field.val());""==this.field.val()&&(this.lastSearch="",this.closeList())},onKeyDown:function(a){38==a.keyCode&&(a.preventDefault(),this.prevItem());40==a.keyCode&&(a.preventDefault(),this.nextItem());if(13==a.keyCode)this.onPressEnter(a);27==a.keyCode&&(a.preventDefault(),this.closeList())},onClickItem:function(a){var b=this.clickedItemAt(a.currentTarget);this.onSelect(a.currentTarget,this.items[b])},onPressEnter:function(a){if(null===this.selectedItem)return!0;a.preventDefault();this.onSelect(this.itemAt(this.selectedItem),this.items[this.selectedItem])},onSelect:function(a,b){this.settings.onSelect&&this.settings.onSelect.apply(this.field,[a,b]);this.lastSearch=this.field.val();this.settings.closeOnSelect&&this.closeList()}};e.defaults=e.prototype.defaults;c.fn.tinyAutocomplete=function(a){return this.each(function(){if(this.tinyAutocomplete)return c.extend(this.tinyAutocomplete.settings,a),this;this.tinyAutocomplete={settings:(new e(this,a)).init().settings}})};c.tinyAutocomplete=e})(window,$);
+(function($) {
+    $.QueryString = (function(a) {
+        if (a == "") return {};
+        var b = {};
+        for (var i = 0; i < a.length; ++i)
+        {
+            var p=a[i].split('=');
+            if (p.length != 2) continue;
+            b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+        }
+        return b;
+    })(window.location.search.substr(1).split('&'))
+})(jQuery);
+/** app start **/
+var ONGKIRLOKAL={};
+ONGKIRLOKAL.cities = [];
+ONGKIRLOKAL.country = [];
+jQuery(function($){
+        $.getJSON('ongkirlokal_subdistrict.json', function(result){ONGKIRLOKAL.cities=result;});
+        $.getJSON('country.json', function(result){ONGKIRLOKAL.country=result;});
+        ONGKIRLOKAL.groupTpl = '<li class="autocomplete-group"><p class="autocomplete-group-header">{{label}} - {{province}}</p>';
+        ONGKIRLOKAL.groupTpl += '<ul data-postal-code="{{postal_code}}" ';
+        ONGKIRLOKAL.groupTpl += 'data-city-id="{{city_id}}" data-city-name="{{label}}" ';
+        ONGKIRLOKAL.groupTpl += 'data-province-id="{{province_id}}" data-province-name="{{province}}" ';
+        ONGKIRLOKAL.groupTpl += 'data-postal-code="{{postal_code}}" ';
+        ONGKIRLOKAL.groupTpl += 'class="autocomplete-items" />';
+        ONGKIRLOKAL.groupTpl += '</li>';
+        
+        
+
+         $('body').on('focusin', 'input[name*="city"]', function(e){
+            e.preventDefault();
+            $(this).attr('autocomplete', 'off');
+            if(!$(this).hasClass('ongkirlokal-ac')){
+                //$(this).addClass('ongkirlokal-ac').trigger('focus');
+                $(this).tinyAutocomplete({
+                      data: ONGKIRLOKAL.cities,
+                      grouped: true,
+                      maxItems: 10000,
+                      showNoResults: true,
+                      scrollOnFocus: false,
+                      markAsBold: true,
+                      groupTemplate: ONGKIRLOKAL.groupTpl,
+                      itemTemplate:'<li class="autocomplete-item" id="subdistrict_id" value="{{subdistrict_id}}" data-subdistrict-id="{{subdistrict_id}}" data-subdistrict-name="{{subdistrict_name}}">{{label}}</li>',
+                      onSelect: function(el, val) {
+                      $('#city_id').val( val.subdistrict_id );
+                        if(val !== null) $(this).val( val.label ); 
+                      },
+                      onClick: function(el, val){}
+                    });
+                }
+                setTimeout(function(){
+                    $(".ongkirlokal-ac:visible").trigger('focus');
+                },10);
+        }); 
+        
+        ONGKIRLOKAL.groupTpl = '<li class="autocomplete-group"><p class="autocomplete-group-header">{{label}} - {{province}}</p>';
+        ONGKIRLOKAL.groupTpl += '<ul data-postal-code="{{postal_code}}" ';
+        ONGKIRLOKAL.groupTpl += 'data-city-id="{{city_id}}" data-city-name="{{label}}" ';
+        ONGKIRLOKAL.groupTpl += 'data-province-id="{{province_id}}" data-province-name="{{province}}" ';
+        ONGKIRLOKAL.groupTpl += 'data-postal-code="{{postal_code}}" ';
+        ONGKIRLOKAL.groupTpl += 'class="autocomplete-items" />';
+        ONGKIRLOKAL.groupTpl += '</li>';
+        
+        
+
+         $('body').on('focusin', 'input[name*="asall"]', function(e){
+            e.preventDefault();
+            $(this).attr('autocomplete', 'off');
+            if(!$(this).hasClass('ongkirlokal-ac')){
+                //$(this).addClass('ongkirlokal-ac').trigger('focus');
+                $(this).tinyAutocomplete({
+                      data: ONGKIRLOKAL.cities,
+                      grouped: true,
+                      maxItems: 10000,
+                      showNoResults: true,
+                      scrollOnFocus: false,
+                      markAsBold: true,
+                      groupTemplate: ONGKIRLOKAL.groupTpl,
+                      itemTemplate:'<li class="autocomplete-item" id="subdistrict_id" value="{{subdistrict_id}}" data-subdistrict-id="{{subdistrict_id}}" data-subdistrict-name="{{subdistrict_name}}">{{label}}</li>',
+                      onSelect: function(el, val) {
+                      $('#asal_id').val( val.subdistrict_id );
+                        if(val !== null) $(this).val( val.label ); 
+                      },
+                      onClick: function(el, val){}
+                    });
+                }
+                setTimeout(function(){
+                    $(".ongkirlokal-ac:visible").trigger('focus');
+                },10);
+        }); 
+        
+        ONGKIRLOKAL.groupTpls = '<li class="autocomplete-group"><p class="autocomplete-group-header">{{country_name}}</p>'; 
+        ONGKIRLOKAL.groupTpls += '<ul data-country-id="{{country_id}}" data-country-name="{{country_name}}" '; 
+        ONGKIRLOKAL.groupTpls += 'class="autocomplete-items" />';
+        ONGKIRLOKAL.groupTpls += '</li>';
+        
+        $('body').on('focusin', 'input[name*="negaraa"]', function(e){
+            e.preventDefault();
+            $(this).attr('autocomplete', 'off');
+            if(!$(this).hasClass('ongkirlokal-ac')){
+                //$(this).addClass('ongkirlokal-ac').trigger('focus');
+                $(this).tinyAutocomplete({
+                      data: ONGKIRLOKAL.country,
+                      
+                      maxItems: 10000,
+                      showNoResults: true,
+                      scrollOnFocus: false,
+                      markAsBold: true,
+                      groupTemplate: ONGKIRLOKAL.groupTpls,
+                      itemTemplate:'<li class="autocomplete-item" id="country_id" value="{{country_id}}" data-country-id="{{country_id}}" data-country-name="{{country_name}}">{{country_name}}</li>',
+                      onSelect: function(el, val) {
+                      $('#negara_id').val( val.country_id );
+                        if(val !== null) $(this).val( val.country_name ); 
+                      },
+                      onClick: function(el, val){}
+                    });
+                }
+                setTimeout(function(){
+                    $(".ongkirlokal-ac:visible").trigger('focus');
+                },10);
+        });   
+         
+
+         
+        
+
+});
+
+ </script>
+ 
+ <script type="text/javascript">
+
+	$(document).ready(function(){ 
+ 
+    $("#cek").click(function(){
+			//Mengambil value dari option select provinsi asal, kabupaten, kurir, berat kemudian parameternya dikirim menggunakan ajax 
+			var country = $('#negara_id').val(); 
+			var berat = $('#berat').val(); 
+			var kec = $('#city_id').val(); 
+			var asalll = $('#asal_id').val(); 
+			$('#fromaddress').remove();
+            if ($('input#international').is(':checked')) {
+                var urls = 'https://www.frozenshop.com/ceks/cek_ongkir_international.php'
+            }else {
+                var urls = 'https://www.frozenshop.com/ceks/cek-ongkir-lengkap.php'
+            }
+      		$.ajax({
+            	type : 'POST',
+           		url : urls,
+            	data :  {'asal_id' : asalll, 'subdistrict_id' : kec, 'country_id' : country, 'berat' : berat},
+            	beforeSend: function(data) { 
+            	    $('#gagal').remove();
+            	    $('#panels').addClass('panel-success');
+                             $('#ongkir').after('<div id="wait"><center><div id = "cupcake" class = "box"><span class = "letter">L</span><div class = "cupcakeCircle box"><div class = "cupcakeInner box"><div class = "cupcakeCore box"></div></div></div><span class = "letter box">A</span><span class = "letter box">D</span><span class = "letter box">I</span><span class = "letter box">N</span><span class = "letter box">G</span><span class = "letter box">.</span><span class = "letter box">.</span></div></center></div>'); 
+                        },
+                        complete: function(data) { 
+                            $('#wait').remove(); 
+                        },
+					success: function (data) {
+
+					//jika data berhasil didapatkan, tampilkan ke dalam element div ongkir 
+					$("#ongkir").html(data); 
+				}
+          	});
+		});
+     
+     	
+	
+	});
+</script>
+<script type="text/javascript"> 
+$('#resi').keyup(function() {
+    var v = $('#resi').val();
+    if ( $('#resi')[0].value.indexOf('01387', 0) !== -1 ){
+        $('#kurirs').val('jne');       
+    }
+    if ( $('#resi')[0].value.indexOf('CGKEC') !== -1 ){
+        $('#kurirs').val('jne');       
+    } 
+    if ( $('#resi')[0].value.indexOf('JD') !== -1 ){
+        $('#kurirs').val('jnt');       
+    } 
+    if ( $('#resi')[0].value.indexOf('JS') !== -1 ){
+        $('#kurirs').val('jnt');       
+    } 
+    if ( $('#resi')[0].value.indexOf('JP') !== -1 ){
+        $('#kurirs').val('jnt');       
+    } 
+    if ( $('#resi')[0].value.indexOf('JB') !== -1 ){
+        $('#kurirs').val('jnt');       
+    } 
+    if ( $('#resi')[0].value.indexOf('JZ') !== -1 ){
+        $('#kurirs').val('jnt');       
+    } 
+    if ( $('#resi')[0].value.indexOf('03012') !== -1 ){
+        $('#kurirs').val('tiki');       
+    }
+    if ( $('#resi')[0].value.indexOf('03011') !== -1 ){
+        $('#kurirs').val('tiki');       
+    }
+    if ( $('#resi')[0].value.indexOf('66000') !== -1 ){
+        $('#kurirs').val('tiki');       
+    }
+    if ( $('#resi')[0].value.indexOf('170764') !== -1 ){
+        $('#kurirs').val('pos');       
+    } 
+    if ( $('#resi')[0].value.indexOf('11470CBS') !== -1 ){
+        $('#kurirs').val('pos');       
+    }
+    if ( $('#resi')[0].value.indexOf('170760') !== -1 ){
+        $('#kurirs').val('pos');       
+    }
+    if ( $('#resi')[0].value.indexOf('172049') !== -1 ){
+        $('#kurirs').val('pos');       
+    }
+    if ( $('#resi')[0].value.indexOf('172042') !== -1 ){
+        $('#kurirs').val('pos');       
+    }
+    if ( $('#resi')[0].value.indexOf('000') !== -1 ){
+        $('#kurirs').val('sicepat');       
+    } 
+    if ( $('#resi')[0].value.indexOf('NVID') !== -1 ){
+        $('#kurirs').val('ninja');       
+    } 
+    if ( $('#resi')[0].value.indexOf('ARD') !== -1 ){
+        $('#kurirs').val('wahana');       
+    }
+    if ( $('#resi')[0].value.indexOf('ANA') !== -1 ){
+        $('#kurirs').val('wahana');       
+    }
+   
+});
+$("#cekresi-btn").show();
+			$("#revisi-btn").hide();
+			
+    function cekResi(){
+			//Mengambil value dari option select provinsi asal, kabupaten, kurir, berat kemudian parameternya dikirim menggunakan ajax 
+			var resi = $('#resi').val();  
+			var kurir = $('#kurirs').val();  
+  $('#fromaddress').remove(); 
+			
+                var urls = 'https://www.frozenshop.com/ceks/cek_resi.php'
+             
+      		$.ajax({
+            	type : 'POST',
+           		url : urls,
+            	data :  {'kurir' : kurir, 'resi' : resi},
+            	beforeSend: function(data) { 
+            	    $('#gagal').remove();
+            	    $('#panels').addClass('panel-success');
+                            $('#ongkir').after('<div id="wait"><center><div id = "cupcake" class = "box"><span class = "letter">L</span><div class = "cupcakeCircle box"><div class = "cupcakeInner box"><div class = "cupcakeCore box"></div></div></div><span class = "letter box">A</span><span class = "letter box">D</span><span class = "letter box">I</span><span class = "letter box">N</span><span class = "letter box">G</span><span class = "letter box">.</span><span class = "letter box">.</span></div></center></div>');  
+                        },
+                        complete: function(data) { 
+                            $('#wait').remove(); 
+                        },
+					success: function (data) {
+
+					//jika data berhasil didapatkan, tampilkan ke dalam element div ongkir
+					$("#ongkir").html(data);
+					$("#cekresi-btn").hide();
+			$("#revisi-btn").show();
+				}
+				
+          	});
+		};
+     
+     	
+	 
+</script>
+	</body>
+</html> 
